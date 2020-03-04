@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Login
+        link(rel="stylesheet" href="/modules/bootstrap/css/bootstrap.min.css")
+        link(rel="stylesheet" href="/css/style.css")
+        link(rel='stylesheet' href='/css/this.css')
+    body(class="body-login")
+        div(class="container pt-5 mt-5")
+            div(class="col-md-6")
+                div(class="card")
+                    div(class="card-body")
+                        h3(class="text-center") Login
+                        form(class="needs-validation" action="/login" method="post" novalidate)
+                            div(class="form-row")
+                                div(class="col-md-12 mb-3")
+                                    label(for="username") Username 
+                                    input(type="text", name="username", class="form-control", id="username",placeholder="Username", required)
+                                    div(class="valid-feedback") #{message}
+                                div(class="col-md-12 mb-3")
+                                    label(for="password") Password
+                                    input(type="password",, name="password" class="form-control", id="password",placeholder="Password", required)
+                                    div(class="valid-feedback") #{message}
+                            button(class="btn btn-primary pt-2", type='submit') Login
+                                    
+        script(src="/js/jquery.min.js")
+        script(src="/js/bootstrap.min.js")
+        script(src="/js/script.js")

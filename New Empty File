@@ -1,0 +1,5 @@
+Error: connect ECONNREFUSED 127.0.0.1:3306
+Error: listen EADDRINUSE :::3000
+TypeError: Cannot read property 'length' of undefined
+
+

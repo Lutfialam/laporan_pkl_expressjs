@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title laporan pkl
+        link(rel='stylesheet' href='/modules/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet' href='/css/this.css')
+        // General CSS Files
+        link(rel='stylesheet' href='/modules/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet' href='/modules/fontawesome/css/all.min.css')
+        // CSS Libraries
+        // Template CSS
+        link(rel='stylesheet' href='/plugins/sweetalert2/sweetalert2.min.css')
+        link(rel='stylesheet' href='/css/style.css')
+        link(rel='stylesheet' href='/css/this.css')
+        link(rel='stylesheet' href='/css/components.css')
+
+    body  
+        nav(class="navbar navbar-expand-sm")
+            button(class="navbar-toggler" type="button", data-toggle="collapse", data-target="#navbarNav" aria-controls="navbarNav", aria-expanded="false" aria-label="Toggle navigation")
+                span(class="navbar-toggler-icon")
+            div(class="collapse navbar-collapse justify-content-end mt-3 mr-4" id="navbarNav")
+                ul(class="navbar-nav ")
+                    li(class="nav-item active")
+                        a(class="nav-link text-white" href="/")
+                            h4 Home
+                    li(class="nav-item")
+                        a(class="nav-link text-white" href="/") 
+                            h4 About
+                    li(class="nav-item")
+                        a(class="nav-link text-white" href="/") 
+                            h4 Contact
+                    li(class="nav-item")
+                        a(class="nav-link text-white" href="/login") 
+                            h4 Login
+        div(class="header-home")
+        div(class="row")
+            div(class="container")
+                div(class="col-md-6 ml-5 pl-5 text-center")
+                    div(class="card")
+                        div(class="card-body")
+                            h5 Beberapa contoh siswa yang ada
+        div(class="row")
+            div(class="container")
+                div(class="col-md-12")
+                    div(class="row")
+                        div(class="col-md-4")
+                            div(class="card card-home")
+                                div(class="card-body")
+                                    img(src="/img/risky.jpg" class="img-thumbnail img-detail")
+                                    p(class="text-white") M.Risky
+                                    p(class="text-white") 17 tahun
+                                    p 10101010
+                                    button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter") Detail
+
+                                    div(class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+                                        div(class="modal-dialog modal-dialog-centered" role="document")
+                                            div(class="modal-content")
+                                                div(class="modal-header")
+                                                    h5(class="modal-title" id="exampleModalCenterTitle") Muhamad Risky
+                                                    button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                                                    span(aria-hidden="true") &times;
+                                                div(class="modal-body")
+                                                    p Nama = Muhamad Risky
+                                                    p kelas = XII TKJ 2
+                                                    p panggilan = risky
+                        div(class="col-md-4")
+                            div(class="card card-home")
+                                div(class="card-body")
+                                    img(src="/img/Lutfi.jpg" class="img-thumbnail img-detail")
+                                    p(class="text-white") Lutfi Alamsyah
+                                    p(class="text-white") 17 tahun
+                                    p 10101011
+                                    button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalLutfi") Detail
+
+                                    div(class="modal fade" id="modalLutfi" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+                                        div(class="modal-dialog modal-dialog-centered" role="document")
+                                            div(class="modal-content")
+                                                div(class="modal-header")
+                                                    h5(class="modal-title" id="exampleModalCenterTitle") Lutfi Alamsyah
+                                                    button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                                                    span(aria-hidden="true") &times;
+                                                div(class="modal-body")
+                                                    p Nama = Lutfi Alamsyah
+                                                    p kelas = XII TKJ 2
+                                                    p panggilan = Lutfi
+                        div(class="col-md-4")
+                            div(class="card card-home")
+                                div(class="card-body")
+                                    img(src="/img/vieri.png" class="img-thumbnail img-detail")
+                                    p(class="text-white") Vieri junior
+                                    p(class="text-white") 17 tahun
+                                    p 10101012
+                                    button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalVieri") Detail
+
+                                    div(class="modal fade" id="modalVieri" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+                                        div(class="modal-dialog modal-dialog-centered" role="document")
+                                            div(class="modal-content")
+                                                div(class="modal-header")
+                                                    h5(class="modal-title" id="exampleModalCenterTitle") Vieri Junior
+                                                    button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                                                    span(aria-hidden="true") &times;
+                                                div(class="modal-body")
+                                                    p Nama = Vieri Junior
+                                                    p kelas = XII TKJ 2
+                                                    p panggilan = Vieri
+
+
+        div(class="row mt-5")
+            div(class="container")
+                div(class="col-md-12")
+                    div(class="row")
+                        div(class="text-center")
+                            h5 Kesempatan pasti selalu ada tunggu apalagi mari daftar
+                            p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit molestiae, voluptatibus ullam sunt possimus recusandae, totam ut aut minima illo, repellat libero! Doloremque, deleniti quo. Eius debitis hic a aliquam.                                         
+        div(class="footer-home") 
+            div(class="row mt-5")
+                div(class="container")
+                    div(class="col-md-12")
+                        div(class="row mt-5 pt-5")
+                            div(class="col-md-6")
+                                h3(class="text-white") Develop by
+                                p(class="text-white") Lutfi Alamsyah
+                            div(class="col-md-12")
+                                h3(class="text-white") Desain by
+                                p(class="text-white") Vieri junior            
+        
+
+        // General JS Scripts
+        script(src='/modules/jquery.min.js')
+        script(src='/modules/popper.js')
+        script(src='/modules/tooltip.js')
+        script(src='/modules/bootstrap/js/bootstrap.min.js')
+        script(src='/modules/nicescroll/jquery.nicescroll.min.js')
+        script(src='/modules/moment.min.js')
+        script(src='/js/stisla.js')
+        script(src='/plugins/sweetalert2/sweetalert2.all.min.js')
+        // JS Libraies
+        // Page Specific JS File
+        // Template JS File
+        script(src='/js/this.js')
+        script(src='/js/scripts.js')
+        script(src='/js/custom.js')

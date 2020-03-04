@@ -1,0 +1,66 @@
+.modal {
+    z-index: 999999999 !important;
+}
+
+.card-home {
+    background-image: url(/img/dekstop_login.png);
+    background-size: cover;
+}
+
+.img-detail {
+    width: 250px;
+    height: 250px;
+}
+
+/* dekstop */
+@media (min-width: 992px) {
+    .body-login{
+        background-image: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)), url(/img/dekstop_login.png);
+        background-size: cover;
+    }
+
+    .header-home {
+        background-image: url(/img/header_home.png);
+        background-size: cover;
+        width: 1300px;
+        height: 820px;
+        margin-top: -10px;
+    }
+
+    .navbar{
+        padding-top: 30px;
+    }
+
+    .footer-home {
+        background-image: url(/img/dekstop_login.png);
+        background-size: cover;
+        margin-top: 50px;
+        width: 1290px;
+        height: 420px;
+    }
+
+}
+
+/* mobile */
+@media (max-width: 768px) {
+    .body-login{
+        background-image: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)), url(/img/mobile_login.png);
+        background-size: cover;
+    }
+
+    .header-home {
+        background-image: url(/img/header_home.png);
+        background-size: cover;
+        width: 1228px;
+        height: 770px;
+        margin-top: -10px;
+    }
+
+    .footer-home {
+        margin-top: 50px;
+        background-image: url(/img/dekstop_login.png);
+        background-size: cover;
+        width: 1128px;
+        height: 470px;
+    }
+}

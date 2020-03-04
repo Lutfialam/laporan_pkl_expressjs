@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+head
+  meta(charset='UTF-8')
+  meta(content='width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no' name='viewport')
+  title Dashboard Admin
+  // General CSS Files
+  link(rel='stylesheet' href='/modules/bootstrap/css/bootstrap.min.css')
+  link(rel='stylesheet' href='/modules/fontawesome/css/all.min.css')
+  // CSS Libraries
+  // Template CSS
+  link(rel='stylesheet' href='/css/style.css')
+  link(rel='stylesheet' href='/css/this.css')
+  link(rel='stylesheet' href='/css/components.css')
+  link(rel='stylesheet' href='/plugins/sweetalert2/sweetalert2.min.css')
+  link(rel="stylesheet" href="/plugins/DataTables2/datatables.min.css")
+  link(rel="stylesheet" href="/plugins/DataTables2/Buttons-1.5.6/css/buttons.bootstrap4.min.css")
+  link(rel="stylesheet" href="/plugins/DataTables2/DataTables-1.10.18/css/dataTables.bootstrap4.min.css")
+  link(rel="stylesheet" href="/plugins/DataTables2/DataTables-1.10.18/css/jquery.dataTables.min.css")
+  // Start GA
+  script(async='' src='https://www.googletagmanager.com/gtag/js?id=UA-94034622-3')
+
+body
+    div(id="app")
+        div(class="main-wrapper main-wrapper-1")
+            div(class="navbar-bg")
+            nav(class="navbar navbar-expand-lg main-navbar")
+                ul(class="navbar-nav navbar-right")
+                    li(class="dropdown")
+                        a(href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user")
+                            img(alt="image" src="/img/avatar/avatar-1.png" class="rounded-circle mr-1")
+                            div(class="d-sm-none d-lg-inline-block") Hi, Admin
+                        div(class="dropdown-menu dropdown-menu-right")
+                            div(class="dropdown-title") Logged in 5 min ago
+                            a(href="features-profile.html" class="dropdown-item has-icon")
+                                i(class="far fa-user") Profile
+                            a(href="features-activities.html" class="dropdown-item has-icon")
+                                i(class="fas fa-bolt") Activities
+                            a(href="features-settings.html" class="dropdown-item has-icon")
+                                i(class="fas fa-cog") Settings
+                            div(class="dropdown-divider")
+                            a(href="/logout" class="dropdown-item has-icon text-danger")
+                                i(class="fas fa-sign-out-alt") Logout
+            div(class="main-sidebar sidebar-style-2")
+                aside(id="sidebar-wrapper")
+                div(class="sidebar-brand")
+                    a(href="index.html") Stisla
+                
+                div(class="sidebar-brand sidebar-brand-sm")
+                    a(href="index.html") St
+                
+                ul(class="sidebar-menu")
+                    li(class="menu-header") Dashboard
+                    li(class="dropdown")
+                        a(href="#" class="nav-link has-dropdown")
+                            i(class="fas fa-fire")
+                            span Dashboard
+                        ul(class="dropdown-menu")
+                            li
+                                a(class="nav-link" href="index-0.html") List Data Admin
+                            li
+                                a(class="nav-link" href="index.html") List Data Siswa
+            // Main Content
+            div(class="main-content")
+                section(class="section")
+                    div(class="section-header")
+                        h1 Master Data
+                    div(class="section-body")
+                        div(class="container")
+                            div(class="card mt-5")
+                                div(class="card-body")
+                                    h3 Data admin
+                                    table(class="table table-hover" id="list_data")
+                                        thead
+                                            tr
+                                                th(width="30") no
+                                                th(width="90") Nama
+                                                th(width="90") jenis_kelamin
+                                                th(width="90") umur
+                                                th(width="90") Alamat
+                                                th(width="90") photo profile
+                                                th(width="110") action
+                                        tbody
+                                            each adm in admin
+                                                tr
+                                                    td(width="30") 1
+                                                    td(width="90") #{adm['nama']}
+                                                    td(width="90") #{adm['jenis_kelamin']}
+                                                    td(width="90") #{adm['umur']}
+                                                    td(width="90") #{adm['alamat']}
+                                                    td(width="90") #{adm['photoProfile']}
+                                                    td(width="110")
+                                                        div(class="row")
+                                                            div(class="col-md-6")
+                                                                a(class="btn btn-warning", href="/ubah") ubah
+                                                            div(class="col-md-6")
+                                                                a(class="btn btn-danger tombol-hapus", href="/delete_admin?id=" + adm['id']) hapus
+
+                                    button(class="btn btn-primary tombol-tambah" type='button', data-toggle='modal', data-target='#modalAdmin') tambah data
+                                    
+
+                        div(class="container")
+                            div(class="card mt-5")
+                                div(class="card-body")
+                                    h3 Data siswa multimedia
+                                    table(class="table table-hover" id="list_data_table1")
+                                        thead
+                                            tr
+                                                th(width="30") no
+                                                th(width="90") Nama
+                                                th(width="90") jenis_kelamin
+                                                th(width="90") umur
+                                                th(width="90") Alamat
+                                                th(width="90") photo profile
+                                                th(width="110") action
+                                        tbody
+                                            each sisw in siswa_MM
+                                                tr
+                                                    td(width="30") 1
+                                                    td(width="90") #{sisw['nama']}
+                                                    td(width="90") #{sisw['jenis_kelamin']}
+                                                    td(width="90") #{sisw['umur']}
+                                                    td(width="90") #{sisw['alamat']}
+                                                    td(width="90") #{sisw['photoProfile']}
+                                                    td(width="110")
+                                                        div(class="row")
+                                                            div(class="col-md-6")
+                                                                a(class="btn btn-warning", href="/ubah") ubah
+                                                            div(class="col-md-6")
+                                                                a(class="btn btn-danger tombol-hapus", href="/delete_siswaMM?id=" + sisw['id']) hapus
+
+                                    button(class="btn btn-primary", type='button', data-toggle='modal', data-target='#modalMM') tambah data
+
+                                    // Modal
+                                    
+
+
+                        div(class="container")
+                            div(class="card mt-5")
+                                div(class="card-body")
+                                    h3 Data siswa teknik
+                                    table(class="table table-hover" id="list_data_table2")
+                                        thead
+                                            tr
+                                                th(width="30") no
+                                                th(width="90") Nama
+                                                th(width="90") jenis_kelamin
+                                                th(width="90") umur
+                                                th(width="90") Alamat
+                                                th(width="90") photo profile
+                                                th(width="110") action
+                                        tbody
+                                            each sisw in siswa_teknik
+                                                tr
+                                                    td(width="30") 1
+                                                    td(width="90") #{sisw['nama']}
+                                                    td(width="90") #{sisw['jenis_kelamin']}
+                                                    td(width="90") #{sisw['umur']}
+                                                    td(width="90") #{sisw['alamat']}
+                                                    td(width="90") #{sisw['photoProfile']}
+                                                    td(width="110")
+                                                        div(class="row")
+                                                            div(class="col-md-6")
+                                                                a(class="btn btn-warning", href="/ubah") ubah
+                                                            div(class="col-md-6")
+                                                                a(class="btn btn-danger tombol-hapus", href="/delete_siswa_teknik?id=" + sisw['id']) hapus
+
+                                    button(class="btn btn-primary", type='button', data-toggle='modal', data-target='#exampleModalCenter') tambah data
+
+                                    // Modal
+                                    
+        footer(class="main-footer")
+            div(class="footer-left")
+                | Copyright &copy; 2018 
+                div(class="bullet")
+                |  Design By 
+                a(href='https://nauval.in/') Muhamad Nauval Azhar
+            div(class="footer-right")
+
+    
+
+
+    //- modall admin
+    div(id="modalAdmin", class="modal fade bd-example-modal-lg",  role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+        div(class="modal-dialog modal-lg modal-dialog-centered", role='document')
+            div(class="modal-content")
+                div(class="modal-header")
+                    h5(id="exampleModalCenterTitle", class="modal-title Modal title") Tambah Data
+                    button(class="close", type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                div(class="modal-body")
+                    form(action="/tambahDataAdmin", method="post")
+                        div(class="row")
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="nama") Nama admin
+                                    input(type="text", name="nama", class="form-control", id="nama",placeholder="nama")
+                                    small(id="emailHelp" class="form-text text-muted") Isilah sesuai dengan nama admin yang ingin ditambahkan
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="username") username
+                                    input(type="text", name="username" ,class="form-control", id="username", placeholder="username")
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="password") password
+                                    input(type="password", name="password" ,class="form-control", id="password", placeholder="password")
+                            div(class="col-md-6")
+                                div(class="form-group")  
+                                    label(for="select") Level
+                                    select(class="form-control", name="level", id="select")
+                                        option admin
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="jenis_kelamin") jenis kelamin
+                                    input(type="text", name="jenis_kelamin" ,class="form-control", id="jenis_kelamin", placeholder="jenis kelamin")
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="umur") umur
+                                    input(type="number", name="umur" ,class="form-control", id="umur", placeholder="umur")
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="alamat") alamat
+                                    input(type="text", name="alamat" ,class="form-control", id="alamat", placeholder="alamat")
+                            div(class="col-md-12")
+                                div(class="custom-file")
+                                    input(type="file",name="photoProfile" ,class="custom-file-input", id="customFile")
+                                    label(class="custom-file-label", for="customFile") Choose file
+                        div(class="modal-footer")
+                            button(class="btn btn-secondary", type='button', data-dismiss='modal') Close
+                            button(class="btn btn-primary", type='submit') tambah data
+
+    //- modal-mm
+    div(id="modalMM", class="modal fade bd-example-modal-lg", tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+        div(class="modal-dialog modal-lg modal-dialog-centered", role='document')
+            div(class="modal-content")
+                div(class="modal-header")
+                    h5(id="exampleModalCenterTitle", class="modal-title Modal title") Tambah Data
+                    button(class="close", type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                div(class="modal-body")
+                    form(action="/tambahDataSiswaMM", method="post")
+                        div(class="row")
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="nama") Nama Siswa
+                                    input(type="text", name="nama", class="form-control", id="nama",placeholder="nama")
+                                    small(id="emailHelp" class="form-text text-muted") Isilah sesuai dengan nama siswa yang ingin ditambahkan
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="NIS") NIS
+                                    input(type="number", name="NIS" ,class="form-control", id="NIS", placeholder="NIS")
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="username") username
+                                    input(type="text", name="username" ,class="form-control", id="username", placeholder="username")
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="password") password
+                                    input(type="password", name="password" ,class="form-control", id="password", placeholder="password")
+                            div(class="col-md-6")
+                                div(class="form-group")  
+                                    label(for="select") Level
+                                    select(class="form-control", name="level", id="select")
+                                        option siswa    
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="jenis_kelamin") jenis kelamin
+                                    input(type="text", name="jenis_kelamin" ,class="form-control", id="jenis_kelamin", placeholder="jenis kelamin")
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="umur") umur
+                                    input(type="number", name="umur" ,class="form-control", id="umur", placeholder="umur")
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="alamat") alamat
+                                    input(type="text", name="alamat" ,class="form-control", id="alamat", placeholder="alamat")
+                            div(class="col-md-12")
+                                div(class="custom-file")
+                                    input(type="file", name="photoProfile" ,class="custom-file-input", id="customFile")
+                                    label(class="custom-file-label", for="customFile") Choose file
+                        div(class="modal-footer")
+                            button(class="btn btn-secondary", type='button', data-dismiss='modal') Close
+                            button(class="btn btn-primary", type='submit') tambah data
+
+
+    //- modal teknik
+    div(id="exampleModalCenter", class="modal fade bd-example-modal-lg", tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+        div(class="modal-dialog modal-lg modal-dialog-centered", role='document')
+            div(class="modal-content")
+                div(class="modal-header")
+                    h5(id="exampleModalCenterTitle", class="modal-title Modal title") Tambah Data
+                    button(class="close", type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                div(class="modal-body")
+                    form(action="/tambahDataSiswaTeknik", method="post")
+                        div(class="row")
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="nama") Nama Siswa
+                                    input(type="text", name="nama", class="form-control", id="nama",placeholder="nama")
+                                    small(id="emailHelp" class="form-text text-muted") Isilah sesuai dengan nama siswa yang ingin ditambahkan
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="NIS") NIS
+                                    input(type="number", name="NIS" ,class="form-control", id="NIS", placeholder="NIS")
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="username") username
+                                    input(type="text", name="username" ,class="form-control", id="username", placeholder="username")
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="password") password
+                                    input(type="password", name="password" ,class="form-control", id="password", placeholder="password")
+                            div(class="col-md-6")
+                                div(class="form-group")  
+                                    label(for="select") Level
+                                    select(class="form-control", name="level", id="select")
+                                        option siswa 
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="jenis_kelamin") jenis kelamin
+                                    input(type="text", name="jenis_kelamin" ,class="form-control", id="jenis_kelamin", placeholder="jenis kelamin")
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="umur") umur
+                                    input(type="number", name="umur" ,class="form-control", id="umur", placeholder="umur")
+                            div(class="col-md-6")
+                                div(class="form-group")
+                                    label(for="alamat") alamat
+                                    input(type="text", name="alamat" ,class="form-control", id="alamat", placeholder="alamat")
+                            div(class="col-md-12")
+                                div(class="custom-file")
+                                    input(type="file",name="photoProfile" ,class="custom-file-input", id="customFile")
+                                    label(class="custom-file-label", for="customFile") Choose file
+                        div(class="modal-footer")
+                            button(class="btn btn-secondary", type='button', data-dismiss='modal') Close
+                            button(class="btn btn-primary", type='submit') tambah data
+
+
+
+
+    // General JS Scripts
+    script(src='/modules/jquery.min.js')
+    script(src='/modules/popper.js')
+    script(src='/modules/tooltip.js')
+    script(src='/modules/bootstrap/js/bootstrap.min.js')
+    script(src='/modules/nicescroll/jquery.nicescroll.min.js')
+    script(src='/modules/moment.min.js')
+    script(src='/js/stisla.js')
+    script(src='/plugins/sweetalert2/sweetalert2.all.min.js')
+    script(src="/plugins/DataTables2/datatables.min.js")
+    script(src="/plugins/DataTables2/Buttons-1.5.6/js/buttons.bootstrap4.min.js")
+    script(src="/plugins/DataTables2/DataTables-1.10.18/js/dataTables.bootstrap4.min.js")
+    script(src="/plugins/DataTables2/DataTables-1.10.18/js/jquery.dataTables.min.js")
+    script(src="/plugins/DataTables2/JSZip-2.5.0/jszip.min.js")
+    script(src="/plugins/DataTables2/pdfmake-0.1.36/pdfmake.min.js")
+    script(src="/plugins/DataTables2/pdfmake-0.1.36/vfs_fonts.js")
+    // JS Libraies
+    // Page Specific JS File
+    // Template JS File
+    script(src='/js/scripts.js')
+    script(src='/js/custom.js')
